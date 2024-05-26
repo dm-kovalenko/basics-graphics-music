@@ -55,7 +55,7 @@ module board_specific_top
 
         .w_key     ( w_tm_key   ),
         .w_sw      ( w_tm_led   ),
-        .w_led     ( w_tm_led   ),
+        .w_led     ( w_tm_led   ), // typo? not important, same value
         .w_digit   ( w_tm_digit ),
 
         .w_red     ( w_red      ),

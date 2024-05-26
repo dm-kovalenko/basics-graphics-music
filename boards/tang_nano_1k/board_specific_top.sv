@@ -130,4 +130,20 @@ module board_specific_top
     assign gpio [1] = 1'b0;  // GND       Pin 17
     assign gpio [0] = 1'b1;  // VCC 3.3V  Pin 16
 
+    //------------------------------------------------------------------------
+
+    i2s_audio_out
+    # (
+        .clk_mhz ( clk_mhz     )
+    )
+    o_audio
+    (
+        .clk     ( clk         ),
+        .reset   ( rst         ),
+        .data_in ( sound       ),
+        .mclk    ( gpio   [27] ), // JP2 pin 37
+        .bclk    ( gpio   [26] ), // JP2 pin 35
+        .lrclk   ( gpio   [40] ), // JP2 pin 31
+        .sdata   ( gpio   [23] )  // JP2 pin 33
+    );                            // JP2 pin 12 - GND, pin 29 - VCC 3.3V (30-45 mA)
 endmodule

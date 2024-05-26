@@ -106,6 +106,8 @@ module board_specific_top
     endgenerate
 
     //------------------------------------------------------------------------
+    // For pin numbers see the Tang Nano 1K PCB silkscreen.
+    // There are errors on the wiki page!
 
     tm1638_board_controller
     # (
@@ -120,12 +122,12 @@ module board_specific_top
         .digit      ( digit    ),
         .ledr       ( tm_led   ),
         .keys       ( tm_key   ),
-        .sio_clk    ( gpio [2] ),  // Pin 7 from left top
-        .sio_stb    ( gpio [3] ),  // Pin 6 from left top
-        .sio_data   ( gpio [4] )   // Pin 8 from left top
+        .sio_clk    ( gpio [2] ),  // Pin 18
+        .sio_stb    ( gpio [3] ),  // Pin 22
+        .sio_data   ( gpio [4] )   // Pin 23
     );
 
-    assign gpio [1] = 1'b0;  // GND       Pin 4 from left top
-    assign gpio [0] = 1'b1;  // VCC 3.3V  Pin 5 from left top
+    assign gpio [1] = 1'b0;  // GND       Pin 17
+    assign gpio [0] = 1'b1;  // VCC 3.3V  Pin 16
 
 endmodule

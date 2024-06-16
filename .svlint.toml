@@ -1,0 +1,22 @@
+[verilog]
+
+[option]
+linter = true
+
+[textrules]
+header_copyright = false
+style_directives = true
+style_semicolon  = false
+
+[syntaxrules]
+blocking_assignment_in_always_at_edge = true
+blocking_assignment_in_always_ff      = true
+blocking_assignment_in_always_latch   = true
+case_default                          = true
+eventlist_or                          = true
+function_same_as_system_function      = true
+general_always_level_sensitive        = true
+general_always_no_edge                = true
+genvar_declaration_out_loop           = true
+interface_identifier_matches_filename = true
+localparam_explicit_type              = true

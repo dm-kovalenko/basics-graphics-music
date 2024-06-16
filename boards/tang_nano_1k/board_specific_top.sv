@@ -14,7 +14,7 @@ module board_specific_top
                 w_green   = 4,
                 w_blue    = 4,
 
-                w_gpio    = 5
+                w_gpio    = 9
 )
 (
     input                 clk,
@@ -132,18 +132,46 @@ module board_specific_top
 
     //------------------------------------------------------------------------
 
+    // TODO: Change order!
+
+    // inmp441_mic_i2s_receiver i_microphone
+    // (
+    //     .clk   ( clk        ),
+    //     .rst   ( rst        ),
+    //     .lr    (            ),  // JP1 pin 5
+    //     .ws    (            ),  // JP1 pin 7
+    //     .sck   (            ),  // JP1 pin 9
+    //     .sd    (            ),  // JP1 pin 10
+    //     .value ( mic        )
+    // );
+
+    // assign GPIO_0 [3] = 1'b0;   // GND - JP1 pin 6
+    // assign GPIO_0 [5] = 1'b1;   // VCC - JP1 pin 8
+
+    //------------------------------------------------------------------------
+
+    // TODO: think about CDC for sound signal
+
+    wire clk_50;
+
+    pll_27_to_50 pll_inst (
+        .clkin  ( clk    ),
+        .clkout ( clk_50 )
+    )
+
     i2s_audio_out
     # (
-        .clk_mhz ( clk_mhz     )
+        .clk_mhz ( 50 )
     )
     o_audio
     (
-        .clk     ( clk         ),
-        .reset   ( rst         ),
-        .data_in ( sound       ),
-        .mclk    ( gpio   [27] ), // JP2 pin 37
-        .bclk    ( gpio   [26] ), // JP2 pin 35
-        .lrclk   ( gpio   [40] ), // JP2 pin 31
-        .sdata   ( gpio   [23] )  // JP2 pin 33
+        .clk     ( clk_50     ),
+        .reset   ( rst        ),
+        .data_in ( sound      ),
+        .lrclk   ( gpio   [5] ), // Pin 40
+        .sdata   ( gpio   [6] ), // Pin 41
+        .bclk    ( gpio   [7] ), // Pin 38
+        .mclk    ( gpio   [8] )  // Pin 39
     );                            // JP2 pin 12 - GND, pin 29 - VCC 3.3V (30-45 mA)
+
 endmodule

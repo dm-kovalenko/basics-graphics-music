@@ -1,0 +1,1 @@
+Pay attention! As of 2024-06-16 there are differences between the pinmap provided at the [SiPeed wiki page](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-1K/Nano-1k.html) and the real pin map you can find on the board's silk screen.

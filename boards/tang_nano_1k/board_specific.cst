@@ -34,6 +34,10 @@ IO_LOC  "gpio[6]"  41 ; IO_PORT "gpio[6]"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8
 IO_LOC  "gpio[7]"  38 ; IO_PORT "gpio[7]"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 IO_LOC  "gpio[8]"  39 ; IO_PORT "gpio[8]"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 
+# ------------------------------------------------------------------------------
+# Original GPIO pin allocation by SiPeed
+# ------------------------------------------------------------------------------
+
 #IO_LOC  "gpio[0]"  28 ; IO_PORT "gpio[0]"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 #IO_LOC  "gpio[1]"  27 ; IO_PORT "gpio[1]"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
 #IO_LOC  "gpio[2]"  15 ; IO_PORT "gpio[2]"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
